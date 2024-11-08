@@ -1,4 +1,4 @@
-Non-Commercial License
+# Non-Commercial License
 
 This license ("License") is a non-commercial license agreement between the individual or entity ("Licensee") and the owner of the software ("Licensor").
 
