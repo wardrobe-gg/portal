@@ -3,7 +3,7 @@
 
 # Wardrobe Portal
 
-[![GitHub](https://img.shields.io/github/license/wardrobe-gg/portal)](https://img.shields.io/github/license/wardrobe-gg/portal)
+[![GitHub](https://img.shields.io/badge/Non%20Commercial-Non%20Commercial?label=License)](https://img.shields.io/badge/Non%20Commercial-Non%20Commercial?label=License)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/wardrobe-gg/portal)](https://img.shields.io/github/issues-pr/wardrobe-gg/portal)
 [![GitHub](https://img.shields.io/github/last-commit/wardrobe-gg/portal)](https://img.shields.io/github/last-commit/wardrobe-gg/portal)
 
