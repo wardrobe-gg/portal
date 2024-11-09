@@ -61,10 +61,10 @@ export default function Cart() {
                     <p className="text-lg font-mc">Your cart is empty</p>
                 )}
                 </div>
-                {cart.length > 0 && <button className={`w-full p-4 outline-none bg-gradient-to-t from-zinc-800 via-zinc-900 to-zinc-950 hover:from-custom-bpink border-2 border-[#41414A] hover:border-custom-bpink cursor-pointer shadow-ciwhite hover:shadow-cipink transform-all duration-150 font-mc text-xl`} onClick={handleCheckout}>
+                {/* {cart.length > 0 && <button className={`w-full p-4 outline-none bg-gradient-to-t from-zinc-800 via-zinc-900 to-zinc-950 hover:from-custom-bpink border-2 border-[#41414A] hover:border-custom-bpink cursor-pointer shadow-ciwhite hover:shadow-cipink transform-all duration-150 font-mc text-xl`} onClick={handleCheckout}>
                     {loadingCheckout === false && (activeAccount?.user ? `Checkout $${(totalCost / 100).toFixed(2)}` : `Login to continue`)}
                     {loadingCheckout === true && <div className='flex items-center justify-center'><Loader2 className='mr-2 animate-spin' /> Loading</div>}
-                </button>}
+                </button>}*/}
             </SheetContent>
         </Sheet>
     )
