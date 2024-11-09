@@ -6,7 +6,7 @@ const triggerCartUpdateEvent = () => {
 
 // Function to get the current cart from localStorage
 export const getCart = (): CartItemType[] => {
-    return JSON.parse(localStorage.getItem('cart') || '[]');
+    return JSON.parse(localStorage.getItem('cart') ?? '[]');
 };
 
 // Function to add an item to the cart, ensuring no duplicates by id
