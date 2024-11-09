@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/sheet"
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
-import { CartItemType, removeFromCart } from "@/lib/cartUtils";
+import type { CartItemType } from "@/lib/cartUtils";
+import { removeFromCart } from "@/lib/cartUtils";
 
 
 export default function Cart() {

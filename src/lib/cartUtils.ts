@@ -4,14 +4,48 @@ const triggerCartUpdateEvent = () => {
     window.dispatchEvent(event);
 };
 
-// Function to get the current cart from localStorage
-export const getCart = (): CartItemType[] => {
-    return JSON.parse(localStorage.getItem('cart') ?? '[]');
+// Cart item type definition
+export type CartItemType = {
+    name: string;
+    cost: number;
+    id: string;
+    stripe_priceid: string;
+    quantity?: number;
 };
 
+// Type guard to validate if an unknown value is a CartItemType
+const isCartItem = (item: unknown): item is CartItemType => {
+    return (
+        typeof item === 'object' &&
+        item !== null &&
+        'name' in item &&
+        'cost' in item &&
+        'id' in item &&
+        'stripe_priceid' in item &&
+        typeof (item as CartItemType).name === 'string' &&
+        typeof (item as CartItemType).cost === 'number' &&
+        typeof (item as CartItemType).id === 'string' &&
+        typeof (item as CartItemType).stripe_priceid === 'string'
+    );
+};
+
+// Function to get the current cart from localStorage
+export const getCart = (): CartItemType[] => {
+    const cartString = localStorage.getItem('cart') ?? '[]';
+    try {
+        const parsedData: unknown = JSON.parse(cartString);
+        if (!Array.isArray(parsedData)) {
+            return [];
+        }
+        return parsedData.filter(isCartItem);
+    } catch {
+        return [];
+    }
+};
+    
 // Function to add an item to the cart, ensuring no duplicates by id
 export const addToCart = (newItem: CartItemType): void => {
-    let cartData = getCart();
+    const cartData = getCart();
 
     // Check if the item already exists in the cart by id
     const itemExists = cartData.some(item => item.id === newItem.id);
@@ -38,13 +72,4 @@ export const removeFromCart = (itemIndex: number): void => {
 export const clearCart = (): void => {
     localStorage.removeItem('cart'); // Clear localStorage
     triggerCartUpdateEvent(); // Trigger update event
-};
-
-// Cart item type definition
-export type CartItemType = {
-    name: string;
-    cost: number;
-    id: string;
-    stripe_priceid: string;
-    quantity?: number;
 };
